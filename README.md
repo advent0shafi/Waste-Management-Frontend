@@ -1,8 +1,36 @@
-# React + Vite
+# React Signup Form
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application that provides a signup form with fields for username, phone number, email, password, and address. The address is entered as a single long text and parsed into city, state, country, and postal code.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [React Signup Form](#react-signup-form)
+  - [Table of Contents](#table-of-contents)
+  - [Demo](#demo)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Contact](#contact)
+
+## Demo
+
+Insert a link to a live demo or GIF screenshot of your application here.
+
+## Features
+
+- User-friendly signup form.
+- Input fields for username, phone number, email, password, and address.
+- Parses address into city, state, country, and postal code.
+
+## Installation
+
+To get started with this project, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/your-username/react-signup-form.git
+cd <fileName>
+npm install
+npm run dev
+ ```
