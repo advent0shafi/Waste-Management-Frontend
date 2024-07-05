@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, Link, Outlet, useLocation } from "react-router-dom"; // Import useLocation
 import logo1 from "./../../../public/logo-01.png";
 
-const Sidebar = () => {
+const WorkerSidebar = () => {
   const navigate = useNavigate();
 
   return (
@@ -14,10 +14,10 @@ const Sidebar = () => {
           </div>
           <nav className="mt-6">
             <div>
-              <Link to="/">
+              <Link to="/worker">
                 <a
                   className={`flex items-center justify-start w-full p-2 pl-6 my-2  transition-colors duration-200 ${
-                    location.pathname === "/"
+                    location.pathname === "/worker"
                       ? "border-l-4 border-purple-500 text-gray-800"
                       : "text-gray-400"
                   }`}
@@ -42,10 +42,10 @@ const Sidebar = () => {
                   <span className="mx-2 text-sm font-normal">Home</span>
                 </a>
               </Link>
-              <Link to="/user-list">
+              <Link to="/worker/order-list">
                 <a
                   className={`flex items-center justify-start w-full p-2 pl-6 my-2  transition-colors duration-200 ${
-                    location.pathname === "/user-list"
+                    location.pathname === "/worker/order-list"
                       ? "border-l-4 border-purple-500 text-gray-800"
                       : "text-gray-400"
                   }`}
@@ -223,4 +223,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default WorkerSidebar;

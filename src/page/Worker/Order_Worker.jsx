@@ -2,8 +2,9 @@ import React from 'react'
 import WorkerSidebar from '../../Components/Sidebar/WorkerSidebar'
 import Navbar from '../../Components/header/Navbar'
 import Profile from '../../Components/WorkerHelpers/Profile'
+import WorkerOrder from '../../Components/WorkerHelpers/WorkerOrder'
 
-export const Home = () => {
+export const Order_Worker = () => {
   return (
     <main className="relative h-screen  bg-gray-100 dark:bg-gray-800">
     <div className="flex items-start justify-between">
@@ -15,7 +16,7 @@ export const Home = () => {
           <Navbar />
         </div>
        <div>
-        <Profile/>
+        <WorkerOrder/>
        </div>
     </div>
       </div>

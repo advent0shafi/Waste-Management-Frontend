@@ -14,14 +14,13 @@ const AdminRoutes = () => {
     <>
       <Routes>
         <Route path="/login" element={<Signing />} />
-        <Route path="/signup" element={<Signup/>} />
+        <Route path="/signup" element={<Signup />} />
         <Route element={<ReqAuth />}>
           <Route path="/" element={<Home />} />
-          <Route path="/scrap" element={<Scrap/>} />
-          <Route path="/user-list" element={<UserInfo/>} />
-<Route path="/worker-list" element={<WorkerList/>} />
-<Route path="/order-list" element={<OrderList/>} />
-
+          <Route path="/scrap" element={<Scrap />} />
+          <Route path="/user-list" element={<UserInfo />} />
+          <Route path="/worker-list" element={<WorkerList />} />
+          <Route path="/order-list" element={<OrderList />} />
         </Route>{" "}
       </Routes>
     </>

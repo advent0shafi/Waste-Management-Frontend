@@ -1,12 +1,15 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
-import Home from './Home';
+import { Home } from '../page/Worker/Home';
+import { Order_Worker } from '../page/Worker/Order_Worker';
 
 const WorkerRoutes = () => {
   return (
     <>
        <Routes>
-          <Route path="/login" element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/order-list" element={<Order_Worker />} />
+
       </Routes>
     </>
   )
