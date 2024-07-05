@@ -49,7 +49,7 @@ const AddProduct = ({ onProductAdded }) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('category', category);
-        formData.append('descriptions', description);
+        formData.append('description', description); // Corrected field name from 'descriptions' to 'description'
         formData.append('image', image);
         formData.append('is_available', isAvailable);
         formData.append('size', size);
@@ -65,16 +65,16 @@ const AddProduct = ({ onProductAdded }) => {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center w-full">
                 <div className="border bg-white shadow-md bg-clip-border rounded-xl p-6">
                     <h5 className="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
                         Add Product
                     </h5>
-                    <form onSubmit={handleSubmit}>
-                        <div className="w-72">
+                    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+                        <div className="w-full ">
                             <div className="relative h-10 w-full min-w-[200px]">
                                 <input
-                                    type="text"
+                                    type="text" 
                                     value={name}
                                     onChange={(e) => setName(e.target.value)}
                                     required
@@ -131,7 +131,7 @@ const AddProduct = ({ onProductAdded }) => {
                                 ))}
                             </select>
                         </div>
-                        <div className="w-72">
+                        <div className="w-72 col-span-2">
                             <label>Description:</label>
                             <textarea
                                 value={description}
@@ -155,6 +155,7 @@ const AddProduct = ({ onProductAdded }) => {
                                 type="checkbox"
                                 checked={isAvailable}
                                 onChange={(e) => setIsAvailable(e.target.checked)}
+                                className="peer h-full w-full rounded-[7px] !border !border-gray-300 border-t-transparent bg-transparent bg-white px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 shadow-lg shadow-gray-900/5 outline outline-0 ring-4 ring-transparent transition-all placeholder:text-gray-500 placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:!border-gray-900 focus:border-t-transparent focus:!border-t-gray-900 focus:outline-0 focus:ring-gray-900/10 disabled:border-0 disabled:bg-blue-gray-50"
                             />
                         </div>
                         <div className="w-72">
@@ -196,7 +197,14 @@ const AddProduct = ({ onProductAdded }) => {
                                 required
                             />
                         </div>
-                        <button type="submit">Add Product</button>
+                        <div className="w-full col-span-2 flex justify-center mt-4">
+                            <button 
+                                type="submit"
+                                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
+                            >
+                                Add Product
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

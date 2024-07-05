@@ -5,18 +5,27 @@ import { HeroSection } from "./HeroSection";
 import CategoryList from "../../Components/Product/CategoryList";
 import ProductList from "../../Components/Product/ProductList";
 import ProductCatogery from "./ProductCatogery";
+import Sidebar from "../../Components/Sidebar/Sidebar";
 
 const Home = () => {
   return (
-    <div>
-      <Navbar />
-      <div className="items-center flex flex-col justify-center h-auto px-4 max-md:px-5 bg-gray-200">
-        <div className="w-full max-w-[80vw]  h-full max-md:max-w-full max-md:my-10 ">
-         <ProductCatogery/>
+
+      <main className="relative h-screen  bg-gray-100 dark:bg-gray-800">
+        <div className="flex items-start justify-between">
+          <div className="sticky top-0">
+        <Sidebar/>
+          </div>
+          <div className="flex flex-col w-full md:space-y-4 overflow-hidden relative">
+            <div className="sticky top-0">
+
+          <Navbar/>
+            </div>
+
+          <ProductCatogery/>          
+          </div>
         </div>
-      </div>
-      <Footer />
-    </div>
+      </main>
+    
   );
 };
 

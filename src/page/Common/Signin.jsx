@@ -104,7 +104,7 @@ const Signing = () => {
 
             <div class="text-grey-dark mt-6">
               Don't have an account?
-              <a class="no-underline border-b border-blue text-blue" href="#">
+              <a class="no-underline border-b border-blue text-blue" href="/signup">
                 <span className="text-[#051570]"> Signup</span>
               </a>
               .

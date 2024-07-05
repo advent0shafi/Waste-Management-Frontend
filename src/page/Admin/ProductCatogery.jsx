@@ -6,11 +6,11 @@ import {
   TabsHeader,
   TabsBody,
   Tab,
-  TabPanel,
+  TabPanel,z
 } from "@material-tailwind/react";
 const ProductCatogery = () => {
   return (
-    <div>
+    <div className="h-full">
       <Tabs value="html">
         <TabsHeader>
           <Tab key="catogery" value="catogery">
@@ -24,7 +24,7 @@ const ProductCatogery = () => {
           <TabPanel key="catogery" value="catogery">
             <CategoryList />
           </TabPanel>
-          <TabPanel key="product" value="product">
+          <TabPanel key="product"  value="product">
             <ProductList />
           </TabPanel>
         </TabsBody>

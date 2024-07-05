@@ -2,26 +2,21 @@
 import React, { useEffect, useState } from "react";
 import { getProducts, deleteProduct } from "../../services/categoryService";
 import AddProduct from "./AddProduct";
-import {
-  MagnifyingGlassIcon,
-  ChevronUpDownIcon,
-} from "@heroicons/react/24/outline";
-import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
+import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
+import { UserPlusIcon } from "@heroicons/react/24/solid";
 import {
   Card,
   CardHeader,
-  Input,
   Typography,
-  Button,
   CardBody,
   Chip,
   CardFooter,
-  Tabs,
-  TabsHeader,
-  Tab,
-  Avatar,
-  IconButton,
   Tooltip,
+  Button,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
 } from "@material-tailwind/react";
 const TABS = [
   {
@@ -42,7 +37,6 @@ const TABLE_HEAD = ["Image", "Price and Stock", "Status", "Date", "Action"];
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
-
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -56,6 +50,10 @@ const ProductList = () => {
     await deleteProduct(id);
     fetchProducts();
   };
+
+  const [size, setSize] = React.useState(null);
+
+  const handleOpen = (value) => setSize(value);
 
   return (
     <>
@@ -75,9 +73,8 @@ const ProductList = () => {
                 <Button variant="outlined" size="sm">
                   view all
                 </Button>
-                <Button className="flex items-center gap-3" size="sm">
-                  <UserPlusIcon strokeWidth={2} className="h-4 w-4" /> Product
-                  List
+                <Button onClick={() => handleOpen("xl")} variant="gradient">
+                  Add Product
                 </Button>
               </div>
             </div>
@@ -114,7 +111,6 @@ const ProductList = () => {
                     {
                       image,
                       name,
-                      category,
                       quantity,
                       price,
                       id,
@@ -222,47 +218,42 @@ const ProductList = () => {
             </div>
           </CardFooter>
         </Card>
-        <div className=" grid grid-cols-3 gap-5">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96"
-            >
-              <div class="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg bg-clip-border rounded-xl h-80">
-                <img
-                  src={product.image}
-                  alt="profile-picture"
-                  className="w-full h-fulll object-cover "
-                />
-              </div>
-              <div class="p-6 text-center">
-                <h4 class="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                  {product.name}
-                </h4>
-                <p class="block font-sans text-base text-black antialiased font-medium leading-relaxed  ">
-                  {product.descriptions}
-                </p>
-                <p class="block font-sans text-base text-black antialiased font-medium leading-relaxed  ">
-                  {product.price}
-                </p>
-                <p class="block font-sans text-base text-black antialiased font-medium leading-relaxed  ">
-                  {product.descriptions}
-                </p>
-              </div>
-              <div class="flex justify-center p-6 pt-2 gap-7">
-                <button
-                  onClick={() => handleDelete(id)}
-                  className="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-                  type="button"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
-        <AddProduct onProductAdded={fetchProducts} />
+
+      <Dialog
+        open={
+          size === "xl" ||
+          size === "xxl"
+        }
+        size={size || "md"}
+        handler={handleOpen}
+      >
+        <DialogHeader className="w-full justify-between">Add Product
+          <div>
+          <Button
+            variant="text"
+            color="red"
+            onClick={() => handleOpen(null)}
+            className="mr-1"
+          >
+            <span>Cancel</span>
+          </Button>
+          <Button
+            variant="gradient"
+            color="green"
+            onClick={() => handleOpen(null)}
+          >
+            <span>Confirm</span>
+          </Button>
+          </div>
+        </DialogHeader>
+        <DialogBody>
+          <AddProduct onProductAdded={fetchProducts} />
+        </DialogBody>
+        <DialogFooter>
+         
+        </DialogFooter>
+      </Dialog>
     </>
   );
 };
