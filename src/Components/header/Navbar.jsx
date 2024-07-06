@@ -24,7 +24,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   {" "}
-                  <a href="/worker/login">
+                  <a href="/login">
                     <button className="text-[16px] text-white leading-[19.36px] font-normal w-[102px] h-[38px] rounded-[44px] bg-[#028D6B]">
                       Login
                     </button>

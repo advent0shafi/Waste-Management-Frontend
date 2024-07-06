@@ -30,11 +30,12 @@ const Signing = () => {
         "http://127.0.0.1:8000/auth/signin/",
         formData
       );
-      console.log(response.data.user.username);
+      console.log(response.data.user.is_worker);
       const userdata = {
         username: response.data.user.username,
         roles: "9289",
         user_id: response.data.user.id,
+        is_worker:response.data.user.is_worker
       };
       dispatch(setCredentials(userdata));
       console.log(response.data);
