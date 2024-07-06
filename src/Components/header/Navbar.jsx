@@ -13,19 +13,14 @@ const Navbar = () => {
               </div>
               <ul className="flex gap-[28px] justify-center items-center h-auto">
                 <li className="text-[16px] leading-[19.36px] font-normal ">
-                  Home{" "}
+                <a href="/">
+                Admin
+                </a>
                 </li>
                 <li className="text-[16px] leading-[19.36px] font-normal ">
-                <a href="/scrap">
-                 Scrap
+                <a href="/worker">
+                 Worker
                  </a>
-                </li>
-                <li className="text-[16px] leading-[19.36px] font-normal ">
-                  Credibility
-                </li>
-                <li className="text-[16px] leading-[19.36px] font-normal ">
-                  {" "}
-                  Funding
                 </li>
                 <li>
                   {" "}
